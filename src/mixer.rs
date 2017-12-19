@@ -9,6 +9,8 @@ use alsa;
 use super::Round;
 use super::error::*;
 
+use alsa::snd_mixer_handle_events;
+
 const SELEM_ID_SIZE: usize = 64;
 
 /// wraps [snd_mixer_t](http://www.alsa-project.org/alsa-doc/alsa-lib/group___mixer.html)
