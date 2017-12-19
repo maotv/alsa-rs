@@ -61,8 +61,8 @@ impl Mixer {
     pub fn wait(&self, timeout_ms: Option<u32>) -> Result<bool> {
         acheck!(snd_mixer_wait(self.0, timeout_ms.map(|x| x as c_int).unwrap_or(-1))).map(|i| i == 1) }
 
-    pub fn handle_events(&self) {
-         acheck!(snd_mixer_handle_events(self.0));
+    pub fn handle_events(&self) -> c_int {
+         acheck!(snd_mixer_handle_events(self.0))
     }
 
 }
